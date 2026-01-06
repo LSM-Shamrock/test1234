@@ -7,17 +7,6 @@ public class ContentObjectBase : ObjectBase
 {
     protected static float Difficulty { get; set; } = 1f;
 
-    protected static MonsterType[] Deck { get; set; } = 
-    {
-        MonsterType.Slime,
-        MonsterType.Bat,
-        MonsterType.Dragon,
-        MonsterType.Skeleton,
-        MonsterType.Golem,
-        MonsterType.ElectricDragon,
-        MonsterType.Goblin,
-    };
-
     private static AllyMonsterData[] s_allyMonsterDatas { get; set; } =
     {
         new AllyMonsterData()
