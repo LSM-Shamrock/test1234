@@ -1,1 +1,143 @@
 화이팅
+
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ContentObjectBase : ObjectBase
+{
+    protected static float Difficulty { get; set; } = 1f;
+
+    protected static MonsterType[] Deck { get; set; } = 
+    {
+        MonsterType.Slime,
+        MonsterType.Bat,
+        MonsterType.Dragon,
+        MonsterType.Skeleton,
+        MonsterType.Golem,
+        MonsterType.ElectricDragon,
+        MonsterType.Goblin,
+    };
+
+    private static AllyMonsterData[] s_allyMonsterDatas { get; set; } =
+    {
+        new AllyMonsterData()
+        {
+            monsterType = MonsterType.Slime,
+            price = 496,
+            cooltime = 4,
+        },
+        new AllyMonsterData()
+        {
+            monsterType = MonsterType.Bat,
+            price = 730,
+            cooltime = 4,
+        },
+        new AllyMonsterData()
+        {
+            monsterType = MonsterType.Goblin,
+            price = 970,
+            cooltime = 10,
+        },
+        new AllyMonsterData()
+        {
+            monsterType = MonsterType.WaveSpirit,
+            price = 1330,
+            cooltime = 20,
+        },
+        new AllyMonsterData()
+        {
+            monsterType = MonsterType.Skeleton,
+            price = 1710,
+            cooltime = 20,
+        },
+        new AllyMonsterData()
+        {
+            monsterType = MonsterType.Dragon,
+            price = 1840,
+            cooltime = 20,
+        },
+        new AllyMonsterData()
+        {
+            monsterType = MonsterType.Golem,
+            price = 2840,
+            cooltime = 15,
+        },
+        new AllyMonsterData()
+        {
+            monsterType = MonsterType.ElectricDragon,
+            price = 4170,
+            cooltime = 35,
+        },
+    };
+    private static Dictionary<MonsterType, AllyMonsterData> s_allyMonsterDataDict;
+    protected static Dictionary<MonsterType, AllyMonsterData> AllyMonsterDataDict
+    {
+        get
+        {
+            if (s_allyMonsterDataDict == null)
+            {
+                s_allyMonsterDataDict = new Dictionary<MonsterType, AllyMonsterData>();
+                foreach (AllyMonsterData data in s_allyMonsterDatas)
+                    s_allyMonsterDataDict.Add(data.monsterType, data);
+            }
+            return s_allyMonsterDataDict;
+        }
+    }
+
+    private static EnemyMonsterData[] s_enemyMonsterDatas =
+    {
+        new EnemyMonsterData()
+        {
+            monsterType = MonsterType.EnemySlime,
+            enemySummonCooltime = 4,
+        },
+        new EnemyMonsterData()
+        {
+            monsterType = MonsterType.DevilCloud,
+            enemySummonCooltime = 4,
+        },
+        new EnemyMonsterData()
+        {
+            monsterType = MonsterType.DarkSkeleton,
+            enemySummonCooltime = 4,
+        },
+        new EnemyMonsterData()
+        {
+            monsterType = MonsterType.EnemySpider,
+            enemySummonCooltime = 4,
+        },
+        new EnemyMonsterData()
+        {
+            monsterType = MonsterType.BombBot,
+            enemySummonCooltime = 4,
+        },
+    };
+    private static Dictionary<MonsterType, EnemyMonsterData> s_enemyMonsterDataDict;
+    protected static Dictionary<MonsterType, EnemyMonsterData> EnemyMonsterDataDict
+    {
+        get
+        {
+            if (s_enemyMonsterDataDict == null)
+            {
+                s_enemyMonsterDataDict = new Dictionary<MonsterType, EnemyMonsterData>();
+                foreach (EnemyMonsterData data in s_enemyMonsterDatas)
+                    s_enemyMonsterDataDict.Add(data.monsterType, data);
+            }
+            return s_enemyMonsterDataDict;
+        }
+    }
+
+    public static Sprite GetMonsterButtonSprite(MonsterType monster)
+    {
+        return ResourceManager.LoadSprite($"Sprites/MonsterButtons/{monster.ToString()}");
+    }
+
+    public static Sprite GetMonsterSprite(MonsterType monster)
+    {
+        return ResourceManager.LoadSprite($"Sprites/Monster/{monster.ToString()}");
+    }
+    public static Sprite GetMonsterSprite(string spriteName)
+    {
+        return ResourceManager.LoadSprite($"Sprites/Monster/{spriteName}");
+    }
+}
