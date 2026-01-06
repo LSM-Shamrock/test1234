@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ContentObjectBase : ObjectBase
 {
-    protected static float Difficulty { get; set; } = 1f;
 
 	뮤마ㅣ러ㅣㄴㅇ머림널;ㅁ너림너리엄나ㅣ렁ㄴ미;러미너ㅣㄹ
 
