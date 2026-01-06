@@ -7,6 +7,10 @@ public class ContentObjectBase : ObjectBase
 {
     protected static float Difficulty { get; set; } = 1f;
 
+
+	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
     private static AllyMonsterData[] s_allyMonsterDatas { get; set; } =
     {
         new AllyMonsterData()
